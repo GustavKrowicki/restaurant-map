@@ -63,3 +63,18 @@ test('assemble matches by address and groups through holding companies', () => {
   // Unmatched OSM place has unknown ownership.
   assert.equal(byName['Ukendt Grill'].category, 'unknown');
 });
+
+import { splitAddress, normalizeCvrapi, fromCache } from '../pipeline/lib/cvrapi.mjs';
+
+test('cvrapi.dk results become units in Aarhus only', () => {
+  assert.deepEqual(splitAddress('Mejlgade 12b, 1. th'), { street: 'Mejlgade', houseNumber: '12B' });
+  const local = { vat: 12345678, name: 'Solsikke ApS', address: 'Mejlgade 12', zipcode: '8000', city: 'Aarhus C',
+    owners: [{ name: 'Peter Hansen' }], productionunits: [{ pno: 1, name: 'Café Solsikke', address: 'Mejlgade 12', zipcode: '8000' }] };
+  const remote = { vat: 87654321, name: 'Solsikke Odense ApS', address: 'Vestergade 1', zipcode: '5000', productionunits: [] };
+  const { units, company } = normalizeCvrapi(local);
+  assert.equal(units[0].houseNumber, '12');
+  assert.equal(company.owners[0].key, 'name:peter hansen');
+  const out = fromCache({ a: { result: local }, b: { result: remote }, c: { result: null } });
+  assert.equal(out.units.length, 1);
+  assert.deepEqual(Object.keys(out.companies), ['12345678']);
+});

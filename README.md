@@ -63,8 +63,19 @@ export CVR_ES_PASSWORD=...
 
 and in GitHub, add the same two names as repository secrets.
 
-Without credentials `fetch-cvr` falls back to a small sample from cvrapi.dk (`CVRAPI_LIMIT`, default 40 lookups).
-That is only good enough to try the site.
+Without credentials `fetch-cvr` falls back to cvrapi.dk name lookups for places within `CVRAPI_RADIUS_M`
+(default 800 m) of Store Torv, restaurants first. The free tier allows only a few dozen lookups a day and
+refuses GitHub's servers, so run it from your own machine:
+
+```sh
+npm run fetch:osm      # once
+npm run fetch:cvr      # repeat daily; answers are cached in cache/cvrapi.json and the run resumes
+npm run build:data
+git add cache site/data && git commit -m "More cvrapi.dk lookups" && git push
+```
+
+cvrapi.dk returns owner names but not owner ids or holding chains, so groups are only found when the same
+company runs several places or owner names match exactly.
 
 ### GitHub Actions
 
