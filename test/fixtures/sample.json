@@ -1,0 +1,488 @@
+{
+ "overpass": {
+  "elements": [
+   {
+    "type": "node",
+    "id": 1,
+    "lat": 56.15,
+    "lon": 10.2,
+    "tags": {
+     "amenity": "restaurant",
+     "name": "Mefisto",
+     "addr:street": "Volden",
+     "addr:housenumber": "28"
+    }
+   },
+   {
+    "type": "way",
+    "id": 2,
+    "center": {
+     "lat": 56.1531,
+     "lon": 10.21
+    },
+    "tags": {
+     "amenity": "cafe",
+     "name": "Kaffe",
+     "brand": "X"
+    }
+   },
+   {
+    "type": "node",
+    "id": 3,
+    "lat": 56.1,
+    "lon": 10.1,
+    "tags": {
+     "amenity": "pub"
+    }
+   }
+  ]
+ },
+ "erstUnit": {
+  "VrproduktionsEnhed": {
+   "pNummer": 1234567890,
+   "virksomhedsrelation": [
+    {
+     "cvrNummer": 22222222,
+     "periode": {
+      "gyldigFra": "2015-01-01",
+      "gyldigTil": "2019-12-31"
+     }
+    },
+    {
+     "cvrNummer": 11111111,
+     "periode": {
+      "gyldigFra": "2020-01-01",
+      "gyldigTil": null
+     }
+    }
+   ],
+   "livsforloeb": [
+    {
+     "periode": {
+      "gyldigFra": "2020-01-01",
+      "gyldigTil": null
+     }
+    }
+   ],
+   "produktionsEnhedMetadata": {
+    "nyesteNavn": {
+     "navn": "Restaurant Test"
+    },
+    "nyesteHovedbranche": {
+     "branchekode": "561010",
+     "branchetekst": "Restauranter"
+    },
+    "nyesteBeliggenhedsadresse": {
+     "vejnavn": "Mejlgade",
+     "husnummerFra": 12,
+     "bogstavFra": "B",
+     "postnummer": 8000,
+     "postdistrikt": "Aarhus C",
+     "kommune": {
+      "kommuneKode": 751
+     }
+    }
+   }
+  }
+ },
+ "erstCompany": {
+  "Vrvirksomhed": {
+   "cvrNummer": 11111111,
+   "virksomhedMetadata": {
+    "nyesteNavn": {
+     "navn": "Test ApS"
+    },
+    "nyesteVirksomhedsform": {
+     "kortBeskrivelse": "APS"
+    },
+    "sammensatStatus": "NORMAL"
+   },
+   "penheder": [
+    {
+     "pNummer": 1,
+     "periode": {
+      "gyldigFra": "2020-01-01",
+      "gyldigTil": null
+     }
+    },
+    {
+     "pNummer": 2,
+     "periode": {
+      "gyldigFra": "2020-01-01",
+      "gyldigTil": null
+     }
+    },
+    {
+     "pNummer": 3,
+     "periode": {
+      "gyldigFra": "2015-01-01",
+      "gyldigTil": "2019-12-31"
+     }
+    }
+   ],
+   "deltagerRelation": [
+    {
+     "deltager": {
+      "enhedsNummer": 99999999,
+      "enhedstype": "VIRKSOMHED",
+      "forretningsnoegle": 99999999,
+      "navne": [
+       {
+        "navn": "Holding ApS",
+        "periode": {
+         "gyldigFra": "2020-01-01",
+         "gyldigTil": null
+        }
+       }
+      ]
+     },
+     "organisationer": [
+      {
+       "hovedtype": "REGISTER",
+       "organisationsNavn": [
+        {
+         "navn": "EJERREGISTER",
+         "periode": {
+          "gyldigFra": "2020-01-01",
+          "gyldigTil": null
+         }
+        }
+       ],
+       "medlemsData": [
+        {
+         "attributter": [
+          {
+           "type": "EJERANDEL_PROCENT",
+           "vaerdier": [
+            {
+             "vaerdi": "1.0",
+             "periode": {
+              "gyldigFra": "2020-01-01",
+              "gyldigTil": null
+             }
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "deltager": {
+      "enhedsNummer": 4000001,
+      "enhedstype": "PERSON",
+      "forretningsnoegle": null,
+      "navne": [
+       {
+        "navn": "Tidligere Ejer",
+        "periode": {
+         "gyldigFra": "2020-01-01",
+         "gyldigTil": null
+        }
+       }
+      ]
+     },
+     "organisationer": [
+      {
+       "hovedtype": "REGISTER",
+       "organisationsNavn": [
+        {
+         "navn": "EJERREGISTER",
+         "periode": {
+          "gyldigFra": "2020-01-01",
+          "gyldigTil": null
+         }
+        }
+       ],
+       "medlemsData": [
+        {
+         "attributter": [
+          {
+           "type": "EJERANDEL_PROCENT",
+           "vaerdier": [
+            {
+             "vaerdi": "1.0",
+             "periode": {
+              "gyldigFra": "2015-01-01",
+              "gyldigTil": "2019-12-31"
+             }
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "deltager": {
+      "enhedsNummer": 4000002,
+      "enhedstype": "PERSON",
+      "forretningsnoegle": null,
+      "navne": [
+       {
+        "navn": "Reel Ejer",
+        "periode": {
+         "gyldigFra": "2020-01-01",
+         "gyldigTil": null
+        }
+       }
+      ]
+     },
+     "organisationer": [
+      {
+       "hovedtype": "REGISTER",
+       "organisationsNavn": [
+        {
+         "navn": "Reelle ejere",
+         "periode": {
+          "gyldigFra": "2020-01-01",
+          "gyldigTil": null
+         }
+        }
+       ],
+       "medlemsData": [
+        {
+         "attributter": [
+          {
+           "type": "EJERANDEL_PROCENT",
+           "vaerdier": [
+            {
+             "vaerdi": "1.0",
+             "periode": {
+              "gyldigFra": "2020-01-01",
+              "gyldigTil": null
+             }
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "deltager": {
+      "enhedsNummer": 4000003,
+      "enhedstype": "PERSON",
+      "forretningsnoegle": null,
+      "navne": [
+       {
+        "navn": "Anna Direktør",
+        "periode": {
+         "gyldigFra": "2020-01-01",
+         "gyldigTil": null
+        }
+       }
+      ]
+     },
+     "organisationer": [
+      {
+       "hovedtype": "LEDELSESORGAN",
+       "organisationsNavn": [
+        {
+         "navn": "Direktion",
+         "periode": {
+          "gyldigFra": "2020-01-01",
+          "gyldigTil": null
+         }
+        }
+       ],
+       "medlemsData": [
+        {
+         "attributter": [
+          {
+           "type": "FUNKTION",
+           "vaerdier": [
+            {
+             "vaerdi": "DIREKTØR",
+             "periode": {
+              "gyldigFra": "2020-01-01",
+              "gyldigTil": null
+             }
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "osm": {
+  "fetchedAt": "2026-01-01",
+  "places": [
+   {
+    "osmId": "node/1",
+    "name": "Café Solsikke",
+    "amenity": "cafe",
+    "lat": 56.159,
+    "lon": 10.211,
+    "street": "Mejlgade",
+    "houseNumber": "12",
+    "postcode": "8000"
+   },
+   {
+    "osmId": "node/2",
+    "name": "Bistro Mågen",
+    "amenity": "restaurant",
+    "lat": 56.156,
+    "lon": 10.208,
+    "street": "Åboulevarden",
+    "houseNumber": "20",
+    "postcode": "8000"
+   },
+   {
+    "osmId": "node/3",
+    "name": "Pizzeria Lille",
+    "amenity": "restaurant",
+    "lat": 56.152,
+    "lon": 10.2,
+    "street": "Jægergårdsgade",
+    "houseNumber": "5",
+    "postcode": "8000"
+   },
+   {
+    "osmId": "node/4",
+    "name": "Ukendt Grill",
+    "amenity": "fast_food",
+    "lat": 56.17,
+    "lon": 10.19,
+    "street": null,
+    "houseNumber": null,
+    "postcode": "8200"
+   }
+  ]
+ },
+ "cvr": {
+  "fetchedAt": "2026-01-01",
+  "source": "erst",
+  "units": [
+   {
+    "pNumber": "P1",
+    "name": "Solsikken Café",
+    "cvr": "10000001",
+    "street": "Mejlgade",
+    "houseNumber": "12",
+    "postcode": "8000",
+    "branchText": "Restauranter",
+    "branchCode": "561010"
+   },
+   {
+    "pNumber": "P2",
+    "name": "Bistro Mågen",
+    "cvr": "10000002",
+    "street": "Åboulevarden",
+    "houseNumber": "20",
+    "postcode": "8000",
+    "branchText": "Restauranter",
+    "branchCode": "561010"
+   },
+   {
+    "pNumber": "P3",
+    "name": "Pizzeria Lille",
+    "cvr": "10000003",
+    "street": "Jægergårdsgade",
+    "houseNumber": "5",
+    "postcode": "8000",
+    "branchText": "Restauranter",
+    "branchCode": "561010"
+   },
+   {
+    "pNumber": "P4",
+    "name": "Solsikken Takeaway",
+    "cvr": "10000001",
+    "street": "Frederiksgade",
+    "houseNumber": "1",
+    "postcode": "8000",
+    "lat": 56.155,
+    "lon": 10.205,
+    "branchText": "Restauranter",
+    "branchCode": "561010"
+   }
+  ],
+  "companies": {
+   "10000001": {
+    "cvr": "10000001",
+    "name": "Solsikke ApS",
+    "activeUnits": 2,
+    "owners": [
+     {
+      "key": "company:20000001",
+      "type": "company",
+      "name": "Gastro Holding ApS",
+      "cvr": "20000001",
+      "share": 1
+     }
+    ],
+    "managers": []
+   },
+   "10000002": {
+    "cvr": "10000002",
+    "name": "Mågen ApS",
+    "activeUnits": 1,
+    "owners": [
+     {
+      "key": "company:20000001",
+      "type": "company",
+      "name": "Gastro Holding ApS",
+      "cvr": "20000001",
+      "share": 0.6
+     },
+     {
+      "key": "person:2",
+      "type": "person",
+      "name": "Lise Berg",
+      "cvr": null,
+      "share": 0.4
+     }
+    ],
+    "managers": []
+   },
+   "20000001": {
+    "cvr": "20000001",
+    "name": "Gastro Holding ApS",
+    "activeUnits": 0,
+    "owners": [
+     {
+      "key": "person:1",
+      "type": "person",
+      "name": "Peter Hansen",
+      "cvr": null,
+      "share": 1
+     }
+    ],
+    "managers": []
+   },
+   "10000003": {
+    "cvr": "10000003",
+    "name": "Pizzeria Lille ApS",
+    "activeUnits": 1,
+    "owners": [
+     {
+      "key": "person:3",
+      "type": "person",
+      "name": "Mads Lund",
+      "cvr": null,
+      "share": 0.9
+     },
+     {
+      "key": "company:20000001",
+      "type": "company",
+      "name": "Gastro Holding ApS",
+      "cvr": "20000001",
+      "share": 0.1
+     }
+    ],
+    "managers": []
+   }
+  }
+ }
+}
