@@ -1,0 +1,56 @@
+name: Refresh data
+
+on:
+  workflow_dispatch:
+    inputs:
+      cvrapi_limit:
+        description: 'cvrapi.dk lookups when ERST credentials are missing'
+        default: '40'
+  schedule:
+    - cron: '17 4 * * 1' # Mondays 04:17 UTC
+  push:
+    branches: ['claude/**']
+    paths: ['pipeline/**', '.github/workflows/data.yml']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-data-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/cache@v4
+        with:
+          path: .cache
+          key: geocode-${{ github.run_id }}
+          restore-keys: geocode-
+      - run: npm test
+      - name: Fetch OpenStreetMap places
+        run: npm run fetch:osm
+      - name: Fetch CVR units and owners
+        # The map still builds from OSM alone if CVR is unreachable.
+        continue-on-error: true
+        env:
+          CVR_ES_USER: ${{ secrets.CVR_ES_USER }}
+          CVR_ES_PASSWORD: ${{ secrets.CVR_ES_PASSWORD }}
+          CVRAPI_LIMIT: ${{ inputs.cvrapi_limit || '40' }}
+        run: npm run fetch:cvr
+      - name: Match, group and write site data
+        run: npm run build:data
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/data/restaurants.json
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "Refresh restaurant data"
+          git push

@@ -1,0 +1,15 @@
+{
+  "name": "aarhus-restaurant-map",
+  "private": true,
+  "type": "module",
+  "description": "Map of Aarhus restaurants and who owns them, from OpenStreetMap and the Danish CVR register",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "fetch:osm": "node pipeline/fetch-osm.mjs",
+    "fetch:cvr": "node pipeline/fetch-cvr.mjs",
+    "build:data": "node pipeline/build.mjs",
+    "data": "npm run fetch:osm && npm run fetch:cvr && npm run build:data",
+    "serve": "npx --yes http-server@14.1.1 site -p 8080 -c-1",
+    "test": "node --test test/*.test.mjs"
+  }
+}

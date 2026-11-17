@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Who owns Aarhus restaurants?</title>
+    <meta name="description" content="A map of Aarhus restaurants, cafes and bars, grouped by who owns them according to the Danish CVR register." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <aside id="panel">
+      <header>
+        <h1>Who owns Aarhus restaurants?</h1>
+        <p class="lede">
+          Every restaurant, cafe and bar on the map is linked to the company that runs it in the Danish CVR
+          register, and then up through holding companies to its owners. Places that share an owner form a group.
+        </p>
+      </header>
+
+      <section id="summary" aria-live="polite"></section>
+
+      <section>
+        <h2>Show</h2>
+        <div id="filters" class="chips"></div>
+        <input id="search" type="search" placeholder="Search a restaurant, company or owner" autocomplete="off" />
+      </section>
+
+      <section id="detail" hidden></section>
+
+      <section id="groups-section">
+        <h2>Biggest owner groups</h2>
+        <ol id="groups"></ol>
+      </section>
+
+      <footer>
+        <p id="freshness"></p>
+        <p>
+          Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors. Company data
+          from <a href="https://datacvr.virk.dk">CVR, Erhvervsstyrelsen</a>. Ownership shows the legal owner register
+          (owners of 5% or more); beneficial owners are not public. Matching OSM places to CVR units is automatic and
+          can be wrong, so check the CVR link before drawing conclusions.
+        </p>
+      </footer>
+    </aside>
+    <main id="map" aria-label="Map of Aarhus restaurants"></main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
