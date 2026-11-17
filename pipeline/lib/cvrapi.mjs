@@ -59,7 +59,13 @@ export async function fetchForPlaces(places, { limit = 40, delayMs = 1500 } = {}
   for (const place of places) {
     if (calls >= limit) break;
     calls++;
-    const json = await searchCompany(place.name);
+    let json;
+    try {
+      json = await searchCompany(place.name);
+    } catch (err) {
+      console.warn(`  ${err.message} after ${calls - 1} lookups, keeping what we have`);
+      break;
+    }
     await sleep(delayMs);
     if (!json?.vat) continue;
     const { units: u, company } = normalizeCvrapi(json);
