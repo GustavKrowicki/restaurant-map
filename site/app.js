@@ -73,10 +73,15 @@ function renderSummary() {
   const legend = CATEGORIES.map(
     (c) => `<li><span class="dot" style="background:${color(c.id)}"></span>${esc(c.label)}<span class="n">${counts[c.id]}</span></li>`,
   ).join('');
-  document.getElementById('summary').innerHTML = `
-    <p class="headline"><strong>${pct(inGroups, known.length)}%</strong>
+  const hasOwners = rs.some((r) => r.cvr);
+  const headline = hasOwners
+    ? `<p class="headline"><strong>${pct(inGroups, known.length)}%</strong>
       of the ${known.length} places with a known owner belong to an owner who runs more than one place in Aarhus.
-      ${pct(counts.independent, known.length)}% are independent.</p>
+      ${pct(counts.independent, known.length)}% are independent.</p>`
+    : `<p class="headline"><strong>${rs.length}</strong> places mapped. Ownership data from CVR is not loaded yet,
+      so only chain brands known from OpenStreetMap are marked.</p>`;
+  document.getElementById('summary').innerHTML = `
+    ${headline}
     <div class="bar" role="img" aria-label="Share of places by ownership category">${bar}</div>
     <ul class="legend">${legend}</ul>`;
 }
